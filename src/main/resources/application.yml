@@ -1,0 +1,41 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: fristdemotest
+  profiles:
+    active: test
+  datasource:
+#    url: jdbc:h2:file:D:/Program Files (x86)/H2/db/db1
+    url: jdbc:h2:tcp://localhost/D:/Program Files (x86)/H2/db/db1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update  # 实体与数据库不一致时，自动修改表结构
+  sql:
+    init:
+      mode: ALWAYS
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+
+#--- # 这个分隔符，作用是可以表示不同的配置文件
+#server:
+#  port: 8091
+#spring:
+#  application:
+#    name: fristdemodev
+#  profiles:
+#    active: dev
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/liaocheng?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: slzx
+#    password: slzx
+#  sql:
+#    init:
+#      mode: never
